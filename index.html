@@ -1,1 +1,110 @@
-<h1>Hello!</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TypeScriptTutorial</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+
+
+<body>
+    <section class="Heading">
+        <h1>TypeScript For Champions</h1>
+    </section>
+    <section class="intro">
+        <h2>What's TypeScript?</h2>
+        <p>
+          TypeScript offers all the same features as JavaScript with an
+          additional feature: TypeScript's type system. What does this
+          system do? In JavaScript variables are not explicitly defined and
+          held to a certain type. TypeScript is able to take a value assigned
+          to a variable and hold that variable to that type of value, while
+          providing the option to explicitly define your variable types.
+        </p>
+    </section>
+    <section class="types">
+        <h2>Types in TypeScript</h2>
+        <div class="type-define">
+        <h3>How to Define a Type</h3>
+          <p>
+              While TypeScript is capable of dynamically setting types for primitive
+              types and some design patterns, some patterns cannot be inferred automatically.
+              To fix this, TypeScript supports an extension of JavaScript allowing
+              you to tell TypeScript what the type should be. <br>
+              The following snippet describes an explicity interface declaration:
+          </p>
+          <div class="code-ex">
+            <p>
+              interface Student {    <br>
+              |  name: string;    <br>
+              |  id: number;      <br>
+          }
+            </p>
+          </div>
+          <p>
+            You can then force a JavaScript object to adhere to the interface's
+            declaration by using the following syntax <span>: TypeName</span>
+            after a variable declaration, which can be seen below:
+          </p>
+          <div class="code-ex">
+            <p>
+              const student: Student = { <br>
+              | name: "Ratatouille",     <br>
+              |  id: 0,                  <br>
+              };
+            </p>
+          </div>
+          <p>
+            If you provide an object that doesn't follow your interface, TypeScript
+            will give a warning.<br>
+            The same principles apply to with declarations in regards to classes
+          </p>
+        </div>
+        <div class="type-compose">
+          <h3>Creating Types</h3>
+          <p>
+            TypeScript can allow you to create more complex types by merging
+            simpler ones together. The two simplest ways to achieve this is with
+            unions and generics.
+          </p>
+          <h4>Unions</h4>
+          <p>
+
+          </p>
+          <h4>Generics</h4>
+          <p>
+
+          </p>
+        </div>
+    </section>
+    <section class="error-checking">
+        <h2>Helping With Error Checking</h2>
+        <h3>Static Type-Checking</h3>
+        <p>
+          
+        </p>
+    </section>
+    <section class="Types For Tooling">
+      <h2>Tools for Types</h2>
+      <h3>TypeScript Compiler (tsc)</h3>
+        <p>
+
+        </p>
+      <h3>Emitting Errors</h3>
+        <p>
+
+        </p>
+      <h3>Strictness</h3>
+        <p>
+          
+        </p>
+      
+    </section>
+    <section class="migration">
+      
+    </section>
+</body>
+
+</html>
