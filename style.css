@@ -1,0 +1,15 @@
+body{
+    background-color: darkgray;
+}
+
+.Heading{
+    text-align: center;
+}
+
+.code-ex{
+    background-color: black;
+    color: white;
+    width: 100%;
+    border: 1px solid white;
+    padding-left: 20px;
+}
