@@ -23,6 +23,7 @@
           to a variable and hold that variable to that type of value, while
           providing the option to explicitly define your variable types.
         </p>
+        <img src="https://miro.medium.com/max/1400/1*5yBOYWrozMMR4eOIASxmeg.png">
     </section>
     <section class="types">
         <h2>Types in TypeScript</h2>
@@ -38,8 +39,8 @@
           <div class="code-ex">
             <p>
               interface Student {    <br>
-              |  name: string;    <br>
-              |  id: number;      <br>
+              &ensp;name: string;    <br>
+              &ensp;id: number;      <br>
           }
             </p>
           </div>
@@ -51,8 +52,8 @@
           <div class="code-ex">
             <p>
               const student: Student = { <br>
-              | name: "Ratatouille",     <br>
-              |  id: 0,                  <br>
+              &ensp;name: "Ratatouille",     <br>
+              &ensp;id: 0,                  <br>
               };
             </p>
           </div>
@@ -71,34 +72,110 @@
           </p>
           <h4>Unions</h4>
           <p>
-
+              Unions allow declaring a type that can be composed of multiple types,
+              or to describe what a value is allowed to be in that type.
           </p>
+          <div class="code-ex">
+            <p>
+              type orientation = portrait | landscape; <br>
+              type PositiveEvenNumbersUnderTen = 2 | 4 | 6 | 8;
+            </p>
+          </div>
+          <p>
+            They can also be used in functions to allow multiple specific types
+            to be accepted.
+          </p>
+          <div class="code-ex">
+            <p>
+              function capitalizeFirst(obj: string | string[]) {
+                ....
+              }
+            </p>
+          </div>
           <h4>Generics</h4>
           <p>
-
+            Generics are able to describe the values that a variable can contain.
+            An easy example of this is with arrays, but can be used with your own
+            types that you've declared as well.
           </p>
+          <div class="code-ex">
+            <p>
+              type StringArray = Array&ltstring&gt; <br>
+            </p>
+          </div>
+          <div class="code-ex">
+            <p>
+              interface Pantalones&ltType&gt { <br>
+                &ensp;add: (obj: Type) => void; <br>
+                &ensp;get: () => Type;
+              <br>}
+            </p>
+          </div>
         </div>
     </section>
     <section class="error-checking">
         <h2>Helping With Error Checking</h2>
         <h3>Static Type-Checking</h3>
         <p>
-          
+          A static type system describes the shapes and behaviors of
+          what your values will be when you run your programs. TypeScript uses
+          this information to tell you when you might have problems. For example,
+          trying to call something that isn't a function will result in an error
+          message before even running your code. This can also be used to find
+          errors with calling undefined properties of an object, uncalled functions,
+          basic logic errors, and even typos.
         </p>
     </section>
     <section class="Types For Tooling">
       <h2>Tools for Types</h2>
       <h3>TypeScript Compiler (tsc)</h3>
         <p>
-
+          The TypeScript Compiler can find errors in runtime based on what Types
+          and how many you provide to the program when you run it. You can get 
+          the TypeScript compiler by installing it via npm:
         </p>
-      <h3>Emitting Errors</h3>
+        <div class="code-ex">
+          <p>
+            npm install -g typescript
+          </p>
+        </div>
+      <h3>Explicit Types</h3>
         <p>
-
+          You can add explicit types to a function or variable by adding
+          what is called <em>type annotations</em>. After adding these annotations,
+          TypeScript is able to find cases where these variables or functions were 
+          used incorrectly or called with improper types. TypeScript can also infer
+          types for you for certain types, such as directly assigning a variable with
+          a string will define that the variable has the string type.
         </p>
+        <div class="code-ex">
+          <p>
+            function startDate(employee: string, date: Date) { <br>
+              &ensp;console.log(`Hello ${employee}, your start date is ${date.toDateString()}!`);
+            <br>}
+          </p>
+        </div>
       <h3>Strictness</h3>
         <p>
-          
+          Changing your strictness dictates how much TypeScript will check for you.
+          While some may want looser strictness, whether out of preference or because
+          of migrating existing JavaScript where you may get many errors that you may
+          prefer to ignore, many prefer to have TypeScript validate as much as it can
+          as soon as it can. TypeScript has several strictness flags that can be toggled,
+          and while you can toggle them all on with "strict": true in a tsconfig.json,
+          you may prefer to toggle the individually. The two biggest flags are noImplicitAny
+          and strictNullChecks.
+        </p>
+      <h4>noImplicitAny</h4>
+        <p>
+          This makes it so that TypeScript never defaults a type to any after failing
+          to infer a type. In areas where this may occur, an error is thrown for any
+          variable that has type any.
+        </p>
+      <h4>strictNullChecks</h4>
+        <p>
+          This flag makes handling null and undefined more explicit so you know
+          that these cases are handled properly.
         </p>
       
     </section>

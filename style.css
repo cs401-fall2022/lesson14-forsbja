@@ -1,5 +1,6 @@
 body{
     background-color: darkgray;
+    margin: 20px;
 }
 
 .Heading{
@@ -9,7 +10,15 @@ body{
 .code-ex{
     background-color: black;
     color: white;
-    width: 100%;
+    width: 97%;
     border: 1px solid white;
     padding-left: 20px;
+}
+
+
+.intro img{
+    height: 60%;
+    width: 60%;
+    max-width: 500px;
+    max-height: 250px;
 }
