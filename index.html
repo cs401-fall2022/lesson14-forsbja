@@ -7,11 +7,15 @@
     <title>TypeScriptTutorial</title>
     <link rel="stylesheet" href="./style.css">
   </head>
-
+  <script type="text/javascript" src="app.ts"></script>
 
 <body>
     <section class="Heading">
-        <h1>TypeScript For Champions</h1>
+        <h1 id="demo" onclick="turnRed()">TypeScript For Champions</h1>
+        <script type="module">
+          import {turnRed} from '/build/app.js'
+          window.turnRed = turnRed;
+      </script>
     </section>
     <section class="intro">
         <h2>What's TypeScript?</h2>
@@ -179,8 +183,14 @@
         </p>
       
     </section>
-    <section class="migration">
-      
+    <section class="partyZone">
+      <h1>PARTY ZONE</h1>
+      <p>Congrats for making it to the end, enjoy a well earned party square. (Click for fun)</p>
+      <div id="partySquare" onclick="partyTime()"></div>
+      <script type="module">
+        import {partyTime} from '/build/app.js'
+        window.partyTime = partyTime;
+    </script>
     </section>
 </body>
 
