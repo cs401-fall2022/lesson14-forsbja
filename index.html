@@ -12,7 +12,7 @@
     <div class="Heading">
         <h1 id="demo" onclick="turnRed()">TypeScript For Champions</h1>
         <script type="module">
-          import {turnRed} from '/build/app.js'
+          import {turnRed} from './build/app.js'
           window.turnRed = turnRed;
       </script>
     </div>
@@ -20,7 +20,7 @@
       <h2>Important!</h2>
       <p id="comic" onclick="comicSans()">Dislike seeing that glorious comic sans title? <span id="clicky">Click here</span> to remove!</p>
       <script type="module">
-        import {comicSans} from '/build/app.js'
+        import {comicSans} from './build/app.js'
         window.comicSans = comicSans;
     </script>
     </section>
@@ -242,7 +242,7 @@
       <p>Congrats for making it to the end, enjoy a well earned party square. (Click for fun)</p>
       <div id="partySquare" onclick="partyTime()"></div>
       <script type="module">
-        import {partyTime} from '/build/app.js'
+        import {partyTime} from './build/app.js'
         window.partyTime = partyTime;
       </script>
     </section>
