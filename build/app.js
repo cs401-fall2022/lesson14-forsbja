@@ -29,5 +29,12 @@ function partyTime() {
     var colorId = Math.floor(Math.random() * 10);
     document.getElementById("partySquare").style.setProperty("background-color", colors[colorId]);
 }
-export { hello, turnRed, partyTime };
+/**
+ * Changes the entire document to use comic sans
+ */
+function comicSans() {
+    document.querySelector("body").style.setProperty("font-family", "Comic Sans MS");
+    document.getElementById("comic").textContent = "Trolled !";
+}
+export { hello, turnRed, partyTime, comicSans };
 //# sourceMappingURL=app.js.map

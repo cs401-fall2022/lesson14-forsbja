@@ -8,13 +8,21 @@
     <link rel="stylesheet" href="./style.css">
   </head>
 
-<body>
-    <section class="Heading">
+<body class="whole">
+    <div class="Heading">
         <h1 id="demo" onclick="turnRed()">TypeScript For Champions</h1>
         <script type="module">
-          import {turnRed} from '../build/app.js'
+          import {turnRed} from '/build/app.js'
           window.turnRed = turnRed;
       </script>
+    </div>
+    <section class="sans">
+      <h2>Important!</h2>
+      <p id="comic" onclick="comicSans()">Dislike seeing that glorious comic sans title? <span id="clicky">Click here</span> to remove!</p>
+      <script type="module">
+        import {comicSans} from '/build/app.js'
+        window.comicSans = comicSans;
+    </script>
     </section>
     <section class="intro">
         <h2>What's TypeScript?</h2>
@@ -26,7 +34,7 @@
           to a variable and hold that variable to that type of value, while
           providing the option to explicitly define your variable types.
         </p>
-        <img src="https://miro.medium.com/max/1400/1*5yBOYWrozMMR4eOIASxmeg.png">
+        <img src="https://miro.medium.com/max/1400/1*5yBOYWrozMMR4eOIASxmeg.png" alt="Chart showing relationship between JS and TS">
     </section>
     <section class="types">
         <h2>Types in TypeScript</h2>
@@ -36,14 +44,14 @@
               While TypeScript is capable of dynamically setting types for primitive
               types and some design patterns, some patterns cannot be inferred automatically.
               To fix this, TypeScript supports an extension of JavaScript allowing
-              you to tell TypeScript what the type should be. <br>
-              The following snippet describes an explicity interface declaration:
+              you to tell TypeScript what the type should be. <br><br>
+              The following snippet describes an explicit interface declaration:
           </p>
           <div class="code-ex">
             <p>
-              interface Student {    <br>
-              &ensp;name: string;    <br>
-              &ensp;id: number;      <br>
+              <span class="basic-color">interface</span> <span class="cyan">Student</span> {    <br>
+              &ensp;<span class="basic-color">name</span>: <span class="cyan">string</span>;    <br>
+              &ensp;<span class="basic-color">id</span>: <span class="cyan">number</span>;      <br>
           }
             </p>
           </div>
@@ -54,17 +62,33 @@
           </p>
           <div class="code-ex">
             <p>
-              const student: Student = { <br>
-              &ensp;name: "Ratatouille",     <br>
-              &ensp;id: 0,                  <br>
+              <span class="basic-color">const</span> <span class="blue">student</span>: <span class="cyan">Student</span> = { <br>
+              &ensp;<span class="basic-color">name</span>:  <span class="red">"Linguini"</span>,     <br>
+              &ensp;<span class="basic-color">id</span>: <span class="green">0</span>,                  <br>
               };
             </p>
           </div>
           <p>
             If you provide an object that doesn't follow your interface, TypeScript
-            will give a warning.<br>
+            will give a warning.
             The same principles apply to with declarations in regards to classes
           </p>
+          <div class="code-ex">
+            <p>
+              <span class="basic-color">interface</span> <span class="cyan">Student</span> {<br>
+                &ensp;<span class="basic-color">name</span>: <span class="cyan">string</span>;<br>
+                &ensp;<span class="basic-color">id</span>: <span class="cyan">number</span>;<br>
+              }<br>
+              <br>
+              <span class="basic-color">const</span> <span class="blue">student</span>: <span class="cyan">Student</span> = {<br>
+                &ensp;<span class="basic-color">username</span>: <span class="red">"Linguini"</span>,<br>
+              <div class="code-ex-error">Type '{ username: string; id: number; }' is not assignable to type 'Student'.<br>
+                Object literal may only specify known properties, and 'username' does not exist in type 'Student'.</div><br>
+                &ensp;<span class="basic-color">id</span>: 0,<br>
+              };<br>
+            </p>
+          </div>
+          <img src="https://www.oreilly.com/api/v2/epubs/9781492037644/files/assets/prts_0301.png" alt="Flow chart showing supported types">
         </div>
         <div class="type-compose">
           <h3>Creating Types</h3>
@@ -80,8 +104,8 @@
           </p>
           <div class="code-ex">
             <p>
-              type orientation = portrait | landscape; <br>
-              type PositiveEvenNumbersUnderTen = 2 | 4 | 6 | 8;
+              <span class="basic-color">type</span> <span class="cyan">orientation</span> = <span class="red">portrait</span> | <span class="red">landscape</span>; <br>
+              <span class="basic-color">type</span> <span class="cyan">PositiveEvenNumbersUnderTen</span> = <span class="green">2</span> | <span class="green">4</span> | <span class="green">6</span> | <span class="green">8</span>;
             </p>
           </div>
           <p>
@@ -90,7 +114,7 @@
           </p>
           <div class="code-ex">
             <p>
-              function capitalizeFirst(obj: string | string[]) {
+              <span class="basic-color">function</span> <span class="vomit">capitalizeFirst</span>(<span class="basic-color">obj</span>: <span class="cyan">string</span> | <span class="cyan">string</span>[]) {
                 ....
               }
             </p>
@@ -103,14 +127,14 @@
           </p>
           <div class="code-ex">
             <p>
-              type StringArray = Array&ltstring&gt; <br>
+              <span class="basic-color">type</span> <span class="cyan">StringArray</span> = <span class="cyan">Array</span>&lt<span class="cyan">string</span>&gt; <br>
             </p>
           </div>
           <div class="code-ex">
             <p>
-              interface Pantalones&ltType&gt { <br>
-                &ensp;add: (obj: Type) => void; <br>
-                &ensp;get: () => Type;
+              <span class="basic-color">interface</span> <span class="cyan">Pantalones</span>&lt<span class="cyan">Type</span>&gt { <br>
+                &ensp;<span class="vomit">add</span>: (<span class="basic-color">obj</span>: <span class="cyan">Type</span>) <span class="basic-color">=></span> <span class="cyan">void</span>; <br>
+                &ensp;<span class="vomit">get</span>: () <span class="basic-color">=></span> <span class="cyan">Type</span>;
               <br>}
             </p>
           </div>
@@ -128,10 +152,21 @@
           errors with calling undefined properties of an object, uncalled functions,
           basic logic errors, and even typos.
         </p>
+        <div class="code-ex">
+          <p>
+            <span class="basic-color">const</span> <span class="blue">message</span> = <span class="red"></span><span class="red">"hello!"</span>; <br><br>
+            <span class="vomit">message</span>();
+            <div class="code-ex-error">
+              This expression is not callable.
+              Type 'String' has no call signatures.
+            </div>
+          </p>
+        </div>
     </section>
     <section class="Types For Tooling">
       <h2>Tools for Types</h2>
       <h3>TypeScript Compiler (tsc)</h3>
+        <img src="https://devopedia.org/images/article/165/6445.1554799186.jpg" alt="Diagram of TS compilation to TS">
         <p>
           The TypeScript Compiler can find errors in runtime based on what Types
           and how many you provide to the program when you run it. You can get 
@@ -145,7 +180,17 @@
       <h3>Explicit Types</h3>
         <p>
           You can add explicit types to a function or variable by adding
-          what is called <em>type annotations</em>. After adding these annotations,
+          what is called <em>type annotations</em> as shown below. 
+        </p>
+        <div class="code-ex">
+          <p>
+            <span class="basic-color">function</span> <span class="vomit">greet</span>(<span class="basic-color">person</span>: <span class="cyan">string</span>, <span class="basic-color">date</span>: <span class="cyan">Date</span>) {<br>
+              &ensp;<span class="basic-color">console</span>.<span class="vomit">log</span>(<span class="red">`Hello</span> <span class="basic-color">${person}</span>, <span class="red">today is</span> <span class="basic-color">${date</span>.<span class="vomit">toDateString</span>()<span class="basic-color">}</span><span class="red">!`</span>);<br>
+            }
+          </p>
+        </div>
+        <p>
+          After adding these annotations,
           TypeScript is able to find cases where these variables or functions were 
           used incorrectly or called with improper types. TypeScript can also infer
           types for you for certain types, such as directly assigning a variable with
@@ -153,11 +198,21 @@
         </p>
         <div class="code-ex">
           <p>
-            function startDate(employee: string, date: Date) { <br>
-              &ensp;console.log(`Hello ${employee}, your start date is ${date.toDateString()}!`);
-            <br>}
+            <span class="basic-color">function</span> <span class="vomit">greet</span>(<span class="basic-color">person</span>: <span class="cyan">string</span>, <span class="basic-color">date</span>: <span class="cyan">Date</span>) {<br>
+              &ensp;<span class="basic-color">console</span>.<span class="vomit">log</span>(<span class="red">`Hello</span> <span class="basic-color">${person}</span>, <span class="red">today is</span> <span class="basic-color">${date</span>.<span class="vomit">toDateString</span>()<span class="basic-color">}</span><span class="red">!`</span>);<br>
+            }<br>
+             <br>
+             <span class="vomit">greet</span>(<span class="red">"Maddison"</span>, <span class="cyan">Date</span>());<br>
+            <div class="code-ex-error">
+              Argument of type 'string' is not assignable to parameter of type 'Date'.
+            </div>
           </p>
         </div>
+        <p>
+          While the above example may look right, calling Date() actually returns a string, 
+          which is not accepted by the above function.
+        </p>
+        
       <h3>Strictness</h3>
         <p>
           Changing your strictness dictates how much TypeScript will check for you.
@@ -187,10 +242,18 @@
       <p>Congrats for making it to the end, enjoy a well earned party square. (Click for fun)</p>
       <div id="partySquare" onclick="partyTime()"></div>
       <script type="module">
-        import {partyTime} from '../build/app.js'
+        import {partyTime} from '/build/app.js'
         window.partyTime = partyTime;
-    </script>
+      </script>
     </section>
+    <footer>
+      <p>
+        This tutorial contains material from the following guides:<br>
+        <a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html">TypeScript for JavaScript Programmers</a><br>
+        <a href="https://www.typescriptlang.org/docs/handbook/2/basic-types.html">TypeScript Basics</a>
+      </p>
+
+    </footer>
 </body>
 
 </html>

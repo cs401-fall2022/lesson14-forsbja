@@ -1,3 +1,5 @@
+import { spawnSync } from "child_process";
+
 /**
  * This returns the string hello
  * @returns the String hello
@@ -17,7 +19,7 @@ function hello (): String {
         }else{
             document.getElementById("demo").style.color = "red";
         }
-    }    
+    }
 }
 
 /**
@@ -30,4 +32,12 @@ function hello (): String {
     document.getElementById("partySquare").style.setProperty("background-color",colors[colorId]);
  }
 
-export {hello, turnRed, partyTime}
+ /**
+  * Changes the entire document to use comic sans
+  */
+ function comicSans() {
+    document.querySelector("body").style.setProperty("font-family","Comic Sans MS"); 
+    document.getElementById("comic").textContent = "Trolled !";
+ }
+
+export {hello, turnRed, partyTime, comicSans}
